@@ -1,4 +1,4 @@
-1.promise串行执行
+####1.promise串行执行
 ```text
 //创建方法是，不能传入Promise作为参数，因为在创建Promise的一刻它就开始pending等待处理，因此应该传入一系列的resolve
 //等上一个 Promise resolved 之后再创建新的 Promise
@@ -36,7 +36,7 @@ function alarm (msg, time) {
 promiseQueue([alarm('1', 4000), alarm('2', 1000), 12, 'hellp', alarm('3', 3000)]).then(x => console.log(x))
 
 ```
-2.Promise实例的异步方法和then()中返回promise的区别
+####2.Promise实例的异步方法和then()中返回promise的区别
 ```text
 // p1异步方法中返回p2
 let p1 = new Promise ( (resolve, reject) => {
