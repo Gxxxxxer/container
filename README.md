@@ -144,4 +144,4 @@ function middleware3(req, res, next) {
 - webpack插件机制
   - 每个插件的调用都在构建流程中绑定了回调来触发特定的步骤。每个插件会在 webpack 启动时被安装一次，webpack 通过调用插件的 apply 方法来安装它们，并且传递一个 webpack compiler 对象的引用。然后你可以调用 compiler.plugin 来访问资源的编译和它们独立的构建步骤。compiler 对象是 webpack 的编译器对象，compiler 对象会在启动 webpack 的时候被一次性的初始化，compiler 对象中包含了所有 webpack 可自定义操作的配置，例如 loader 的配置，plugin 的配置，entry 的配置等各种原始 webpack 配置等，在 webpack 插件中的自定义子编译流程中，我们肯定会用到 compiler 对象中的相关配置信息。compilation 实例继承于 compiler，compilation 对象代表了一次单一的版本 webpack 构建和生成编译资源的过程。当运行 webpack 开发环境中间件时，每当检测到一个文件变化，一次新的编译将被创建，从而生成一组新的编译资源以及新的 compilation 对象。一个 compilation 对象包含了 当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状态信息。
 - loader的概念和机制，以及与plugin的区别
-  - loaders可以理解为一个转换器，用于转换应用程序的资源文件，它操作的是文件，比如less转css。plugin，它就是一个扩展器，它丰富了wepack本身，针对是webpack打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听webpack打包过程中的某些节点，通过对节点的监听，从而找到合适的节点对文件做适当的处理。
+  - loaders可以理解为一个转换器，用于转换应用程序的资源文件，它操作的是文件，比如less转css。plugin，它就是一个扩展器，它丰富了wepack本身，针对是webpack打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听webpack打包过程中的某些节点，通过对节点的监听，从而找到合适的节点对文件做适当的处理。
